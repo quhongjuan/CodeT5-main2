@@ -99,5 +99,4 @@ CUDA_VISIBLE_DEVICES=${GPU} \
   2>&1 | tee ${LOG}
 
 
-
 #--do_train --do_eval --do_eval_bleu --do_test  \
