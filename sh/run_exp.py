@@ -35,7 +35,7 @@ def get_args_by_task_model(task, sub_task, model_tag):
         src_len = 256
         trg_len = 128
         # epoch = 15
-        epoch = 2
+        epoch = 1
         patience = 2
     elif task == 'refine':
         # small: Read 46680 examples, avg src len: 31, avg trg len: 28, max src len: 50, max trg len: 50
