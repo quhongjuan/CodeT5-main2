@@ -27,6 +27,7 @@ def build_or_load_gen_model(args):
     #config = config_class.from_pretrained(args.config_name if args.config_name else args.model_name_or_path)
     # tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name)
 
+
     #config = config_class.from_pretrained('/headless/qhj/CodeT5-main2/pretrained_models/codet5_base')
     config = config_class.from_pretrained(args.config_name if args.config_name else args.model_name_or_path)
     tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name)
