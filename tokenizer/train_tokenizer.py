@@ -1,5 +1,5 @@
-from tokenizers import ByteLevelBPETokenizer
-
+#from tokenizers import ByteLevelBPETokenizer
+from tokenizers.implementations import ByteLevelBPETokenizer
 paths = ['train_code.txt', 'train_doc.txt']
 
 # Initialize a tokenizer

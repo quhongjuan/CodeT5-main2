@@ -63,10 +63,12 @@ elif [[ $MODEL_TAG == codet5_small ]]; then
   MODEL_PATH=Salesforce/codet5-small
 elif [[ $MODEL_TAG == codet5_base ]]; then
   MODEL_TYPE=codet5
-  TOKENIZER=Salesforce/codet5-base
-  MODEL_PATH=Salesforce/codet5-base
-#  TOKENIZER=/mnt/qhj/soft/codeproject/CodeT5-main/pretrained_models/codet5-base
-#  MODEL_PATH=/mnt/qhj/soft/codeproject/CodeT5-main/pretrained_models/codet5-base
+#  TOKENIZER=Salesforce/codet5-base
+#  MODEL_PATH=Salesforce/codet5-base
+#  TOKENIZER=./pretrained_models/codet5-base
+#  MODEL_PATH=./pretrained_models/codet5-base
+  TOKENIZER=/headless/qhj/CodeT5-main2/finetuned_models
+  MODEL_PATH=/headless/qhj/CodeT5-main2/pretrained_models/codet5_base
 elif [[ $MODEL_TAG == codet5_large ]]; then
   MODEL_TYPE=codet5
   TOKENIZER=Salesforce/codet5-large
@@ -87,7 +89,7 @@ fi
 
 CUDA_VISIBLE_DEVICES=${GPU} \
   python ${RUN_FN}  ${MULTI_TASK_AUG}   \
-  --do_train --do_eval --do_eval_bleu --do_test  \
+  --do_test  \
   --task ${TASK} --sub_task ${SUB_TASK} --model_type ${MODEL_TYPE} --data_num ${DATA_NUM}  \
   --num_train_epochs ${EPOCH} --warmup_steps ${WARMUP} --learning_rate ${LR}e-5 --patience ${PATIENCE} \
   --tokenizer_name=${TOKENIZER}  --model_name_or_path=${MODEL_PATH} --data_dir ${WORKDIR}/data  \
@@ -95,3 +97,6 @@ CUDA_VISIBLE_DEVICES=${GPU} \
   --save_last_checkpoints --always_save_model --res_dir ${RES_DIR} --res_fn ${RES_FN} \
   --train_batch_size ${BS} --eval_batch_size ${BS} --max_source_length ${SRC_LEN} --max_target_length ${TRG_LEN} \
   2>&1 | tee ${LOG}
+
+
+#--do_train --do_eval --do_eval_bleu --do_test  \

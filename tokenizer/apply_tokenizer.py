@@ -1,4 +1,5 @@
-from tokenizers import ByteLevelBPETokenizer
+#from tokenizers import ByteLevelBPETokenizer
+from tokenizers.implementations import ByteLevelBPETokenizer
 
 tokenizer = ByteLevelBPETokenizer.from_file(
     "./salesforce/codet5-vocab.json",
