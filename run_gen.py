@@ -367,6 +367,7 @@ def main():
         logger.info("  Batch size = %d", args.eval_batch_size)
 
         for criteria in ['best-bleu']:
+
             file = os.path.join(args.output_dir, 'checkpoint-{}/pytorch_model.bin'.format(criteria))
             # file='/headless/qhj/CodeT5-main2/finetuned_models/summarize_java_codet5_base.bin'
             logger.info("Reload model from {}".format(file))
